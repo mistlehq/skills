@@ -1,0 +1,44 @@
+# Mistle Skills
+
+Open-source agent skills with a Bash installer for Mistle sandboxes
+
+## Install
+
+This repository ships a Bash installer for sandboxes where `git` and `bash` are available.
+
+Add the following into Mistle's sandbox profile setup script if you want to install skills:
+
+```bash
+git clone https://github.com/mistlehq/skills.git /tmp/mistle-skills
+/tmp/mistle-skills/install.sh github-pr-authoring github-pr-review
+```
+
+Install one skill:
+
+```bash
+/tmp/mistle-skills/install.sh github-pr-authoring
+```
+
+Install multiple skills by passing each skill name as an argument:
+
+```bash
+/tmp/mistle-skills/install.sh github-pr-authoring github-pr-review
+```
+
+Install every skill in this repository:
+
+```bash
+/tmp/mistle-skills/install.sh
+```
+
+The installer detects the single installed agent runtime and installs config-level skills to the matching directory:
+
+- Codex: `${CODEX_HOME:-$HOME/.codex}/skills`
+- OpenCode: `${XDG_CONFIG_HOME:-$HOME/.config}/opencode/skills`
+
+If no skill names are provided, the installer installs every first-level skill under `skills/`.
+
+## Skills
+
+- `github-pr-authoring`: Draft or update GitHub PRs using Mistle's PR body format.
+- `github-pr-review`: Review live GitHub pull requests and publish review comments.
