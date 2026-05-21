@@ -9,6 +9,10 @@ This repository ships a Bash installer for sandboxes where `git` and `bash` are 
 Add the following into Mistle's sandbox profile setup script if you want to install skills:
 
 ```bash
+export HOME="${HOME:-/root}"
+export XDG_CONFIG_HOME="${XDG_CONFIG_HOME:-$HOME/.config}"
+export CODEX_HOME="${CODEX_HOME:-$HOME/.codex}"
+
 git clone https://github.com/mistlehq/skills.git /tmp/mistle-skills
 /tmp/mistle-skills/install.sh github-pr-authoring github-pr-review
 ```
@@ -33,8 +37,11 @@ Install every skill in this repository:
 
 The installer detects the single installed agent runtime and installs config-level skills to the matching directory:
 
-- Codex: `${CODEX_HOME:-$HOME/.codex}/skills`
-- OpenCode: `${XDG_CONFIG_HOME:-$HOME/.config}/opencode/skills`
+- Codex: `$CODEX_HOME/skills`, defaulting to `$HOME/.codex/skills`
+- OpenCode: `$XDG_CONFIG_HOME/opencode/skills`, defaulting to `$HOME/.config/opencode/skills`
+
+If `HOME` is not exported by the calling runtime, the installer resolves a stable
+fallback before installing skills.
 
 If no skill names are provided, the installer installs every first-level skill under `skills/`.
 

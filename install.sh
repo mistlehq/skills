@@ -4,6 +4,45 @@ set -euo pipefail
 repo_root="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 source_root="$repo_root/skills"
 
+resolve_home() {
+  local home_dir="${HOME:-}"
+  local user_name="${USER:-}"
+
+  if [[ -n "$home_dir" ]]; then
+    printf '%s\n' "$home_dir"
+    return
+  fi
+
+  if [[ -z "$user_name" ]] && command -v id >/dev/null 2>&1; then
+    user_name="$(id -un 2>/dev/null || true)"
+  fi
+
+  if [[ -n "$user_name" ]] && command -v getent >/dev/null 2>&1; then
+    home_dir="$(getent passwd "$user_name" 2>/dev/null | cut -d: -f6 || true)"
+  fi
+
+  if [[ -z "$home_dir" ]] && command -v id >/dev/null 2>&1 && [[ "$(id -u 2>/dev/null || true)" == "0" ]]; then
+    home_dir="/root"
+  fi
+
+  if [[ -z "$home_dir" ]]; then
+    home_dir="/tmp/mistle-agent-home"
+  fi
+
+  printf '%s\n' "$home_dir"
+}
+
+prepare_environment() {
+  HOME="$(resolve_home)"
+  export HOME
+
+  XDG_CONFIG_HOME="${XDG_CONFIG_HOME:-$HOME/.config}"
+  export XDG_CONFIG_HOME
+
+  CODEX_HOME="${CODEX_HOME:-$HOME/.codex}"
+  export CODEX_HOME
+}
+
 usage() {
   cat <<'EOF'
 Usage: ./install.sh [skill...]
@@ -34,12 +73,12 @@ detect_skills_root() {
   fi
 
   if [[ "$has_codex" == "yes" ]]; then
-    printf '%s\n' "${CODEX_HOME:-$HOME/.codex}/skills"
+    printf '%s\n' "$CODEX_HOME/skills"
     return
   fi
 
   if [[ "$has_opencode" == "yes" ]]; then
-    printf '%s\n' "${XDG_CONFIG_HOME:-$HOME/.config}/opencode/skills"
+    printf '%s\n' "$XDG_CONFIG_HOME/opencode/skills"
     return
   fi
 
@@ -119,6 +158,7 @@ if [[ "${1:-}" == "--help" || "${1:-}" == "-h" ]]; then
   exit 0
 fi
 
+prepare_environment
 skills_root="$(detect_skills_root)"
 
 if [[ "$#" -eq 0 ]]; then
@@ -138,4 +178,3 @@ fi
 for skill in "${skills[@]}"; do
   install_skill "$skill"
 done
-
