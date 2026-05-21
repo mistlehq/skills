@@ -45,6 +45,7 @@ If no skill names are provided, the installer installs every first-level skill u
 - `github-pr-authoring`: Draft or update GitHub PRs using Mistle's PR body format.
 - `github-pr-review`: Review live GitHub pull requests and publish review comments.
 - `github-pr-review-subagents`: Review live GitHub pull requests with focused subagent review and main-reviewer validation.
+- `install-playwright`: Reference pinned Playwright CLI installation and write repeatable setup scripts for sandbox or agent environments.
 - `post-implementation-cleanup-loop`: Run repeated behavior-preserving cleanup review and fix rounds until no accepted findings remain.
 - `write-a-skill`: Create or rewrite agent skills with clearer triggers, progressive disclosure, and compression.
 
