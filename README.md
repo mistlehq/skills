@@ -46,8 +46,10 @@ If no skill names are provided, the installer installs every first-level skill u
 - `github-pr-review`: Review live GitHub pull requests and publish review comments.
 - `github-pr-review-subagents`: Review live GitHub pull requests with focused subagent review and main-reviewer validation.
 - `post-implementation-cleanup-loop`: Run repeated behavior-preserving cleanup review and fix rounds until no accepted findings remain.
+- `write-a-skill`: Create or rewrite agent skills with clearer triggers, progressive disclosure, and compression.
 
 ## Attributions
 
 - `codex-review`: [`steipete/agent-scripts`](https://github.com/steipete/agent-scripts/tree/main/skills/codex-review)
 - `grill-with-docs`: [`mattpocock/skills`](https://github.com/mattpocock/skills/tree/main/skills/engineering/grill-with-docs)
+- `write-a-skill`: adapted from [`mattpocock/skills`](https://github.com/mattpocock/skills/tree/main/skills/productivity/write-a-skill)
