@@ -1,15 +1,13 @@
 ---
-name: github-pr-review
-description: Review a GitHub pull request from live PR state, follow the real code path, and post precise inline review comments with gh api plus PR-level comments with gh pr comment.
+name: github-pr-review-subagents
+description: Review a GitHub pull request from live PR state by sending focused review aspects to subagents, validating their findings, and posting precise inline comments with gh api plus PR-level comments with gh pr comment. Use when asked for a delegated, parallel, multi-agent, or subagent GitHub PR review.
 ---
 
 ## Start
-
 Use live PR state. Run `gh pr view` and `gh pr diff` before reviewing.
 Read repo-local review, test, contribution, or maintainer instructions that apply to the changed files.
 
 ## Reconstruct Scope
-
 Before judging the PR, gather:
 
 - ref: PR number/url, base, and head
@@ -19,6 +17,23 @@ Before judging the PR, gather:
 - change type: bug fix, feature, refactor, config/runtime, dependency, docs, test-only, or mixed
 - touched paths: changed files, entrypoints, owners, tests, docs, and config
 - affected behavior: production behavior the PR appears to change
+
+## Delegate Review Aspects
+
+The main reviewer owns final judgment, comment wording, and publishing. Use subagents to inspect focused aspects in parallel after scope is reconstructed.
+
+Delegate only concrete, bounded aspects:
+
+- production path and ownership boundary
+- backwards compatibility and public contract
+- test coverage and executable proof
+- docs, setup, migration, and recovery path
+- provider/plugin/channel-specific behavior
+- dependency or upstream contract risk
+
+Give each subagent the PR ref, base, head, intent, relevant files, assigned aspect, and required finding shape: file/line or symbol, failure mode, impact, smallest fix, and proof checked. Tell subagents they are advisory and must not post comments.
+
+While subagents run, trace the highest-risk path locally. Validate returned findings against source, diff anchors, tests, docs, and runtime contracts. Reject duplicated, speculative, style-only, or unverified findings.
 
 ## Review Method
 
@@ -69,14 +84,11 @@ Each finding must include:
 - impact
 - smallest recommended fix
 
-If there are no blocking findings, say:
-
-- no blocking correctness issues found
-- strongest proof checked
-- residual risk or test gaps
-- whether the structure is acceptable for this scope
+If there are no blocking findings, say no blocking correctness issues found, strongest proof checked, residual risk or test gaps, and whether the structure is acceptable for this scope.
 
 If verification fails, say what was attempted, the shortest useful failure summary, whether it appears caused by the PR or by the environment, and how it affects confidence. Do not report it as a code finding unless it traces to the changed code; otherwise include it under proof gaps or residual risk.
+
+Before publishing, merge duplicates into the clearest root-cause finding, downgrade unanchorable valid concerns to PR-level feedback, and keep only findings the main reviewer can defend from direct evidence.
 
 Route findings by anchor:
 
