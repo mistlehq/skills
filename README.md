@@ -58,6 +58,6 @@ If no skill names are provided, the installer installs every first-level skill u
 
 ## Attributions
 
-- `codex-review`: [`steipete/agent-scripts`](https://github.com/steipete/agent-scripts/tree/main/skills/codex-review)
+- `codex-review`: [`openclaw/agent-skills`](https://github.com/openclaw/agent-skills/tree/main/skills/autoreview)
 - `grill-with-docs`: [`mattpocock/skills`](https://github.com/mattpocock/skills/tree/main/skills/engineering/grill-with-docs)
 - `write-a-skill`: adapted from [`mattpocock/skills`](https://github.com/mattpocock/skills/tree/main/skills/productivity/write-a-skill)
