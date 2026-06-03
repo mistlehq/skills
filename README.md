@@ -14,7 +14,7 @@ export XDG_CONFIG_HOME="${XDG_CONFIG_HOME:-$HOME/.config}"
 export CODEX_HOME="${CODEX_HOME:-$HOME/.codex}"
 
 git clone https://github.com/mistlehq/skills.git /tmp/mistle-skills
-/tmp/mistle-skills/install.sh github-pr-authoring github-pr-review
+/tmp/mistle-skills/install.sh github-pr-authoring github-pr-review-subagents
 ```
 
 Install one skill:
@@ -26,7 +26,7 @@ Install one skill:
 Install multiple skills by passing each skill name as an argument:
 
 ```bash
-/tmp/mistle-skills/install.sh github-pr-authoring github-pr-review
+/tmp/mistle-skills/install.sh github-pr-authoring github-pr-review-subagents
 ```
 
 Install every skill in this repository:
@@ -51,7 +51,6 @@ If no skill names are provided, the installer installs every first-level skill u
 - `file-issues`: File handoff-ready issues in an issue tracker from issue material, context, and references.
 - `grill-with-docs`: Stress-test plans against project language and update CONTEXT.md/ADRs as decisions crystallize.
 - `github-pr-authoring`: Draft or update GitHub PRs using Mistle's PR body format.
-- `github-pr-review`: Review live GitHub pull requests and publish review comments.
 - `github-pr-review-subagents`: Review live GitHub pull requests with focused subagent review and main-reviewer validation.
 - `improve-harness-engineering`: Audit and prioritize codebase harness improvements for coding-agent workflows.
 - `install-playwright`: Reference pinned Playwright CLI installation and write repeatable setup scripts for sandbox or agent environments.
