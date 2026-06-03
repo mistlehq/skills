@@ -9,7 +9,7 @@ description: Create new agent skills or improve existing skills with clearer tri
 
 Choose the path:
 
-- **New skill**: gather requirements, draft `SKILL.md`, add references or scripts only if needed.
+- **New skill**: gather requirements, use `TEMPLATE.md` for the skeleton, add references or scripts only if needed.
 - **Existing skill**: assess current behavior first, then rewrite for shorter and clearer execution without losing the behaviors that matter.
 
 For new skills, ask what task/domain it covers, what use cases it handles, whether it needs scripts or only instructions, and what reference materials to include.
@@ -25,27 +25,30 @@ When improving an existing skill:
 5. Split rare or advanced details into one-level reference files.
 6. Re-check the result against the must-preserve behaviors.
 
+## Skill Critique Pass
+
+Before finishing a skill change, run a critique pass:
+
+- Does each new instruction change behavior rather than restating another rule?
+- Is each concept owned in one place, with other files only routing to it?
+- Is the skill standalone unless it is explicitly an orchestrator?
+- Do output requirements improve style without forcing awkward visible labels?
+- Does the skill distinguish ready actions from unresolved decisions?
+- Does required behavior sound optional because of phrases like "when relevant" or "if material"?
+- Are examples necessary, or could they bias future usage?
+
+Do not only add instructions. After adding, subtract and centralize. A good skill change should usually make the skill more precise, not just longer.
+
 ## Skill Structure
 
 ```text
 skill-name/
 ├── SKILL.md
-├── REFERENCE.md   # if detailed docs are needed
+├── TOPIC.md       # one-level reference files when detailed docs are needed
 └── scripts/       # if deterministic helpers are needed
 ```
 
-## Template
-
-```md
----
-name: skill-name
-description: What it does. Use when [specific triggers].
----
-
-# Skill Name
-
-Core instructions, workflows, and links to one-level references.
-```
+Use [TEMPLATE.md](TEMPLATE.md) for the minimal new-skill skeleton.
 
 ## Description Requirements
 
@@ -86,7 +89,8 @@ After drafting or rewriting, verify:
 - [ ] SKILL.md under 100 lines
 - [ ] Must-preserve behaviors are still covered
 - [ ] Body instructions are direct, conditional, and non-duplicative
+- [ ] Critique pass completed: necessity, ownership, coupling, output shape, decision sensitivity, conditionality, examples
 - [ ] No time-sensitive info
 - [ ] Consistent terminology
-- [ ] Concrete examples included
+- [ ] Examples are included only when necessary and unlikely to bias usage
 - [ ] References one level deep
