@@ -54,6 +54,7 @@ If no skill names are provided, the installer installs every first-level skill u
 - `github-pr-authoring`: Draft or update GitHub PRs using Mistle's PR body format.
 - `github-pr-review-subagents`: Review live GitHub pull requests with focused subagent review and main-reviewer validation.
 - `improve-harness-engineering`: Audit and prioritize codebase harness improvements for coding-agent workflows.
+- `improve-system-architecture`: Review codebase architecture from a system vantage point and recommend repo-local, cross-repo, or system-level improvements.
 - `install-playwright`: Reference pinned Playwright CLI installation and write repeatable setup scripts for sandbox or agent environments.
 - `post-implementation-cleanup-loop`: Run repeated behavior-preserving cleanup review and fix rounds until no accepted findings remain.
 - `write-a-skill`: Create or rewrite agent skills with clearer triggers, progressive disclosure, and compression.
@@ -63,4 +64,5 @@ If no skill names are provided, the installer installs every first-level skill u
 - `codex-review`: [`openclaw/agent-skills`](https://github.com/openclaw/agent-skills/tree/main/skills/autoreview)
 - `grill-with-docs`: [`mattpocock/skills`](https://github.com/mattpocock/skills/tree/main/skills/engineering/grill-with-docs)
 - `improve-harness-engineering`: vocabulary adapted from Birgitta Bockeler's ["Harness engineering for coding agent users"](https://martinfowler.com/articles/harness-engineering.html)
+- `improve-system-architecture`: adapted from [`mattpocock/skills`](https://github.com/mattpocock/skills/tree/main/skills/engineering/improve-codebase-architecture)
 - `write-a-skill`: adapted from [`mattpocock/skills`](https://github.com/mattpocock/skills/tree/main/skills/productivity/write-a-skill)
