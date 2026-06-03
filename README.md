@@ -48,6 +48,7 @@ If no skill names are provided, the installer installs every first-level skill u
 ## Skills
 
 - `codex-review`: Run Codex code review as a closeout check for local changes or PR branches.
+- `diagnose-issue`: Diagnose observable technical or operational issues from evidence and state confidence, proof, and gaps.
 - `file-issues`: File handoff-ready issues in an issue tracker from issue material, context, and references.
 - `grill-with-docs`: Stress-test plans against project language and update CONTEXT.md/ADRs as decisions crystallize.
 - `github-pr-authoring`: Draft or update GitHub PRs using Mistle's PR body format.
