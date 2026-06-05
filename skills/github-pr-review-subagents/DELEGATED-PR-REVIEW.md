@@ -1,12 +1,17 @@
 # Delegated PR Review
 
-The main reviewer reconstructs PR scope first, then delegates focused review lanes. Delegation is mandatory for non-trivial PRs and advisory only: subagents must not post review comments.
+The main reviewer reconstructs PR scope into an evidence brief, then delegates focused review lanes. Delegation is mandatory for non-trivial PRs and advisory only: subagents must not post review comments.
+
+Subagents inspect code, docs, tests, contracts, and runtime evidence directly. They must not delegate their lane to another review workflow, reviewer agent, or automated review tool unless the main reviewer explicitly assigns that task.
 
 Use the smallest set of lanes that covers the diff. Always account for correctness, spec, standards, structural quality, and proof, even if one lane is handled by the main reviewer instead of a subagent.
+
+After reconstructing scope, the main reviewer checks lane-escalation triggers from `SKILL.md`. Escalated lanes must name the triggering risk and stay scoped to the files, contracts, docs, checks, or runtime paths needed to cover that risk.
 
 Each delegated response must include:
 
 - lane reviewed
+- escalation reason, if this was an escalated lane
 - surfaces inspected: files, symbols, docs, issue/spec sources, commands, or checks
 - surfaces not covered, with reason
 - findings, each with file/line or symbol, failure mode, impact, smallest fix, and proof checked
@@ -18,7 +23,9 @@ Each delegated response must include:
 
 Before using a delegated finding, the main reviewer must check:
 
+- did the subagent evaluate the lane against the shared evidence brief?
 - did the subagent inspect the right files, docs, contracts, and changed paths for the lane?
+- if escalated, does the response cover the triggering risk rather than a broad re-review?
 - are uncovered surfaces listed with reasons?
 - is confidence justified by the coverage and evidence?
 - does each finding point to a concrete failure mode, not a vague concern?

@@ -16,6 +16,10 @@ A publishable finding needs:
 
 Do not publish speculative, style-only, duplicated, or unverified findings. Keep valid but unanchorable architectural concerns in the PR-level comment.
 
+When an accepted finding reveals a bug class or repeated pattern, inspect the current PR scope for sibling instances before publishing. Keep the sweep bounded to touched surfaces, adjacent owners, and clear PR-relevant paths. Prefer one root-cause finding with sibling examples over duplicate comments when the same fix addresses them.
+
+When a finding depends on prior behavior or regression history, verify provenance from source, tests, git history, linked issues, prior PRs, or maintainer comments before publishing. Keep original behavior, regressing change, current PR change, and current PR author separate. If provenance is unclear, state the uncertainty as residual risk instead of guessing.
+
 ## Confidence
 
 Use high confidence when the finding is directly supported by source, the changed line is identified, the affected path is traced, and proof or contracts confirm the failure.

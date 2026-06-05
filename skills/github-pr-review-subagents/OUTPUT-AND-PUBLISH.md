@@ -36,12 +36,14 @@ Missing coverage belongs in residual risk or proof gaps, not as an implied pass.
 
 ## Judgment Labels
 
+Every review must end with exactly one judgment label:
+
 - `acceptable for merge`: no blocking findings, no material residual risk, and coverage is adequate for the PR scope
 - `no blocking correctness issues found`: no blocking correctness findings, but residual risk, proof gaps, or non-blocking structural concerns remain
 - `changes recommended`: non-blocking findings or cleanup should be addressed before merge
 - `blocked by findings`: at least one finding should block merge until fixed
 
-These are textual judgment labels for the PR-level comment. Do not perform a formal GitHub approval action unless the user explicitly asks.
+Do not soften or combine labels. Use residual risk to explain caveats instead of inventing another judgment state. These are textual judgment labels for the PR-level comment. Do not perform a formal GitHub approval action unless the user explicitly asks.
 
 ## Publishing
 
