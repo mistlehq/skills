@@ -1,6 +1,6 @@
 ---
 name: autoreview
-description: Run a structured code review with Codex by default and optional alternate engines. Use when the user asks for autoreview, Codex review, Claude review, second-model review, or a closeout review on a local or PR branch before commit or ship.
+description: "Run a structured code review (Codex default, Claude optional) as a closeout check on a local or PR branch before commit or ship."
 ---
 
 # Auto Review
