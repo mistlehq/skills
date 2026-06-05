@@ -1,9 +1,9 @@
 ---
-name: post-implementation-cleanup-loop
-description: Run branch-wide post-implementation cleanup through repeated subagent review and fix rounds until no accepted cleanup findings remain. Use when a working implementation needs behavior-preserving cleanup, refactoring, de-duplication, or dead-code removal across the full branch/worktree.
+name: cleanup-implementation
+description: Clean up a working implementation through repeated behavior-preserving review and fix rounds until no accepted cleanup findings remain. Use when a branch or worktree needs post-implementation cleanup, refactoring, de-duplication, dead-code removal, or ownership simplification without behavior changes.
 ---
 
-# Post-Implementation Cleanup Loop
+# Cleanup Implementation
 
 Apply [DELEGATED-CLEANUP-REVIEW.md](DELEGATED-CLEANUP-REVIEW.md), [CLEANUP-STANDARD.md](CLEANUP-STANDARD.md), and [OUTPUT.md](OUTPUT.md) to every cleanup loop.
 

@@ -14,7 +14,7 @@ export XDG_CONFIG_HOME="${XDG_CONFIG_HOME:-$HOME/.config}"
 export CODEX_HOME="${CODEX_HOME:-$HOME/.codex}"
 
 git clone https://github.com/mistlehq/skills.git /tmp/mistle-skills
-/tmp/mistle-skills/install.sh write-pull-request github-pr-review-subagents
+/tmp/mistle-skills/install.sh write-pull-request review-pull-request
 ```
 
 Install one skill:
@@ -26,7 +26,7 @@ Install one skill:
 Install multiple skills by passing each skill name as an argument:
 
 ```bash
-/tmp/mistle-skills/install.sh write-pull-request github-pr-review-subagents
+/tmp/mistle-skills/install.sh write-pull-request review-pull-request
 ```
 
 Install every skill in this repository:
@@ -48,22 +48,20 @@ If no skill names are provided, the installer installs every first-level skill u
 ## Skills
 
 - `autoreview`: Run structured code review with the bundled helper, using Codex by default and optional alternate engines.
-- `codex-review`: Run Codex code review as a closeout check for local changes or PR branches.
+- `cleanup-implementation`: Clean up a working implementation without changing intended behavior.
 - `diagnose-issue`: Diagnose observable technical or operational issues from evidence and state confidence, proof, and gaps.
 - `file-issues`: File handoff-ready issues in an issue tracker from issue material, context, and references.
 - `grill-with-docs`: Stress-test plans against project language and update CONTEXT.md/ADRs as decisions crystallize.
-- `write-pull-request`: Write GitHub PR titles and descriptions using Mistle's PR body format.
-- `github-pr-review-subagents`: Review live GitHub pull requests with focused subagent review and main-reviewer validation.
 - `improve-harness-engineering`: Audit and prioritize codebase harness improvements for coding-agent workflows.
 - `improve-system-architecture`: Review codebase architecture from a system vantage point and recommend repo-local, cross-repo, or system-level improvements.
 - `install-playwright`: Reference pinned Playwright CLI installation and write repeatable setup scripts for sandbox or agent environments.
-- `post-implementation-cleanup-loop`: Run repeated behavior-preserving cleanup review and fix rounds until no accepted findings remain.
+- `review-pull-request`: Review live GitHub pull requests with focused subagent review and main-reviewer validation.
 - `write-a-skill`: Create or rewrite agent skills with clearer triggers, progressive disclosure, and compression.
+- `write-pull-request`: Write GitHub PR titles and descriptions using Mistle's PR body format.
 
 ## Attributions
 
 - `autoreview`: [`openclaw/agent-skills`](https://github.com/openclaw/agent-skills/tree/main/skills/autoreview)
-- `codex-review`: [`openclaw/agent-skills`](https://github.com/openclaw/agent-skills/tree/main/skills/autoreview)
 - `grill-with-docs`: [`mattpocock/skills`](https://github.com/mattpocock/skills/tree/main/skills/engineering/grill-with-docs)
 - `improve-harness-engineering`: vocabulary adapted from Birgitta Bockeler's ["Harness engineering for coding agent users"](https://martinfowler.com/articles/harness-engineering.html)
 - `improve-system-architecture`: adapted from [`mattpocock/skills`](https://github.com/mattpocock/skills/tree/main/skills/engineering/improve-codebase-architecture)

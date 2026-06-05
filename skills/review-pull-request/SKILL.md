@@ -1,6 +1,6 @@
 ---
-name: github-pr-review-subagents
-description: Review live GitHub pull requests with delegated lanes, evidence validation, follow-up delta reviews, and GitHub inline or PR-level publishing. Use when asked for a delegated, parallel, multi-agent, subagent, or follow-up GitHub PR review.
+name: review-pull-request
+description: Review live GitHub pull requests with delegated lanes, evidence validation, follow-up delta reviews, and GitHub inline or PR-level publishing. Use when asked to review a pull request, PR, GitHub PR, delegated review, parallel review, multi-agent review, subagent review, or follow-up PR review.
 ---
 
 ## Start
