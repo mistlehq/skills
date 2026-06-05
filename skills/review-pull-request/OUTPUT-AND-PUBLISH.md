@@ -47,10 +47,15 @@ Do not soften or combine labels. Use residual risk to explain caveats instead of
 
 ## Publishing
 
+Publish to the review host by default unless the user asks for dry-run, preview, or local-only review.
+
 Before publishing, merge duplicates into the clearest root-cause finding and keep only findings the main reviewer can defend from direct evidence.
+
+## GitHub Publishing
 
 Route findings by anchor:
 
 - exact changed-line finding: post an inline review comment with `gh api`
-- architectural, cross-file, non-diff, or unanchorable finding: include it in the PR-level comment with file/symbol references
-- overall result, proof checked, residual risk, judgment, and broad questions: post one PR-level comment with `gh pr comment`
+- finding without an exact diff anchor: include it in the PR-level summary with file/symbol references
+
+For GitHub pull requests, post inline comments first, then post the PR-level summary with `gh pr comment`. The review is not complete until the host write succeeds or the write failure is reported.

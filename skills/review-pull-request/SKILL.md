@@ -78,4 +78,4 @@ Apply [STRUCTURAL-QUALITY-BAR.md](STRUCTURAL-QUALITY-BAR.md) before approval.
 
 ## Findings And Publish
 
-Validate findings with [REVIEW-EVIDENCE-STANDARD.md](REVIEW-EVIDENCE-STANDARD.md). Use [OUTPUT-AND-PUBLISH.md](OUTPUT-AND-PUBLISH.md) for coverage accounting, deduplication, inline vs PR-level routing, and the mandatory single judgment label.
+Validate findings with [REVIEW-EVIDENCE-STANDARD.md](REVIEW-EVIDENCE-STANDARD.md). Use [OUTPUT-AND-PUBLISH.md](OUTPUT-AND-PUBLISH.md) for coverage accounting, deduplication, default host publishing, inline vs PR-level routing, and the mandatory single judgment label.
