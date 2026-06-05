@@ -14,19 +14,19 @@ export XDG_CONFIG_HOME="${XDG_CONFIG_HOME:-$HOME/.config}"
 export CODEX_HOME="${CODEX_HOME:-$HOME/.codex}"
 
 git clone https://github.com/mistlehq/skills.git /tmp/mistle-skills
-/tmp/mistle-skills/install.sh github-pr-authoring github-pr-review-subagents
+/tmp/mistle-skills/install.sh write-pull-request github-pr-review-subagents
 ```
 
 Install one skill:
 
 ```bash
-/tmp/mistle-skills/install.sh github-pr-authoring
+/tmp/mistle-skills/install.sh write-pull-request
 ```
 
 Install multiple skills by passing each skill name as an argument:
 
 ```bash
-/tmp/mistle-skills/install.sh github-pr-authoring github-pr-review-subagents
+/tmp/mistle-skills/install.sh write-pull-request github-pr-review-subagents
 ```
 
 Install every skill in this repository:
@@ -47,11 +47,12 @@ If no skill names are provided, the installer installs every first-level skill u
 
 ## Skills
 
+- `autoreview`: Run structured code review with the bundled helper, using Codex by default and optional alternate engines.
 - `codex-review`: Run Codex code review as a closeout check for local changes or PR branches.
 - `diagnose-issue`: Diagnose observable technical or operational issues from evidence and state confidence, proof, and gaps.
 - `file-issues`: File handoff-ready issues in an issue tracker from issue material, context, and references.
 - `grill-with-docs`: Stress-test plans against project language and update CONTEXT.md/ADRs as decisions crystallize.
-- `github-pr-authoring`: Draft or update GitHub PRs using Mistle's PR body format.
+- `write-pull-request`: Write GitHub PR titles and descriptions using Mistle's PR body format.
 - `github-pr-review-subagents`: Review live GitHub pull requests with focused subagent review and main-reviewer validation.
 - `improve-harness-engineering`: Audit and prioritize codebase harness improvements for coding-agent workflows.
 - `improve-system-architecture`: Review codebase architecture from a system vantage point and recommend repo-local, cross-repo, or system-level improvements.
@@ -61,6 +62,7 @@ If no skill names are provided, the installer installs every first-level skill u
 
 ## Attributions
 
+- `autoreview`: [`openclaw/agent-skills`](https://github.com/openclaw/agent-skills/tree/main/skills/autoreview)
 - `codex-review`: [`openclaw/agent-skills`](https://github.com/openclaw/agent-skills/tree/main/skills/autoreview)
 - `grill-with-docs`: [`mattpocock/skills`](https://github.com/mattpocock/skills/tree/main/skills/engineering/grill-with-docs)
 - `improve-harness-engineering`: vocabulary adapted from Birgitta Bockeler's ["Harness engineering for coding agent users"](https://martinfowler.com/articles/harness-engineering.html)

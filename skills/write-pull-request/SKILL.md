@@ -1,9 +1,9 @@
 ---
-name: github-pr-authoring
-description: Draft or update GitHub pull requests for this repository in the required format. Use when creating a PR, revising a PR description, preparing reviewer guidance, documenting checks and tests performed, or using `gh pr create` / `gh pr edit` for repo-compliant GitHub PR authoring.
+name: write-pull-request
+description: Write GitHub pull request titles, descriptions, reviewer guidance, and validation notes in the repository's required format. Use when drafting a new PR body, revising an existing PR description, preparing reviewer guidance, or documenting checks and tests performed.
 ---
 
-# Github Pr Authoring
+# Write Pull Request
 
 1. Base the PR on the actual diff, changed files, and checks. Do not invent tests, commands, or implications.
 2. Use this exact body structure:
@@ -43,4 +43,3 @@ List only checks that add reviewer signal. Prefer:
 - for property-based tests, the invariants asserted, generator bounds, and how failures can be replayed from seed/path
 
 Do not restate obvious command behavior. If a routine command simply passed, say that directly.
-
