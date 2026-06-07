@@ -17,6 +17,7 @@ Before judging, gather a compact evidence brief:
 - changed surface: runtime, CLI, provider, channel, docs, tests, config, dependency, or mixed
 - change type: bug fix, feature, refactor, config/runtime, dependency, docs, test-only, or mixed
 - touched paths: changed files, entrypoints, owners, tests, docs, and config
+- applicable standards: repo-wide and path-specific rules discovered for the touched surfaces, including missing or ambiguous standards
 - affected behavior: production behavior the PR appears to change
 
 If reviewing after prior feedback, gather prior review state and decide whether [FOLLOW-UP-REVIEWS.md](FOLLOW-UP-REVIEWS.md) calls for a delta review, fresh lane, or full review before delegation.
