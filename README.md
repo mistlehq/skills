@@ -52,6 +52,7 @@ If no skill names are provided, the installer installs every first-level skill u
 - `diagnose-issue`: Diagnose observable technical or operational issues from evidence and state confidence, proof, and gaps.
 - `file-issues`: File handoff-ready issues in an issue tracker from issue material, context, and references.
 - `grill-with-docs`: Stress-test plans against project language and update CONTEXT.md/ADRs as decisions crystallize.
+- `implement-with-alignment`: Normalize an implementation brief, get explicit alignment, then execute, verify, and prepare the completed change for publication.
 - `improve-harness-engineering`: Audit and prioritize codebase harness improvements for coding-agent workflows.
 - `improve-system-architecture`: Review codebase architecture from a system vantage point and recommend repo-local, cross-repo, or system-level improvements.
 - `install-playwright`: Reference pinned Playwright CLI installation and write repeatable setup scripts for sandbox or agent environments.
