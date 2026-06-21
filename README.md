@@ -26,7 +26,6 @@ directory should include YAML frontmatter with a unique `name` and a
 - `implement-with-alignment`: Normalize an implementation brief, get explicit alignment, then execute, verify, and prepare the completed change for publication.
 - `improve-harness-engineering`: Audit and prioritize codebase harness improvements for coding-agent workflows.
 - `improve-system-architecture`: Review codebase architecture from a system vantage point and recommend repo-local, cross-repo, or system-level improvements.
-- `install-playwright`: Reference pinned Playwright CLI installation and write repeatable setup scripts for sandbox or agent environments.
 - `review-pull-request`: Review live GitHub pull requests with focused subagent review and main-reviewer validation.
 - `write-a-skill`: Create or rewrite agent skills with clearer triggers, progressive disclosure, and compression.
 - `write-pull-request`: Write GitHub PR titles and descriptions using Mistle's PR body format.
