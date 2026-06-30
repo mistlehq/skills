@@ -1,49 +1,20 @@
 # Mistle Skills
 
-Open-source agent skills with a Bash installer for Mistle sandboxes
+Open-source agent skills for Mistle sandbox profiles
 
-## Install
+## Use In Mistle
 
-This repository ships a Bash installer for sandboxes where `git` and `bash` are available.
+Use this repository as a Mistle sandbox profile Skills source.
 
-Add the following into Mistle's sandbox profile setup script if you want to install skills:
+1. Open a sandbox profile version in Mistle.
+2. In the Skills section, choose this repository as the Skills source.
+3. Load or reload skills from the source.
+4. Select the skills that should be available to the agent runtime.
+5. Publish the sandbox profile version.
 
-```bash
-export HOME="${HOME:-/root}"
-export XDG_CONFIG_HOME="${XDG_CONFIG_HOME:-$HOME/.config}"
-export CODEX_HOME="${CODEX_HOME:-$HOME/.codex}"
-
-git clone https://github.com/mistlehq/skills.git /tmp/mistle-skills
-/tmp/mistle-skills/install.sh write-pull-request review-pull-request
-```
-
-Install one skill:
-
-```bash
-/tmp/mistle-skills/install.sh write-pull-request
-```
-
-Install multiple skills by passing each skill name as an argument:
-
-```bash
-/tmp/mistle-skills/install.sh write-pull-request review-pull-request
-```
-
-Install every skill in this repository:
-
-```bash
-/tmp/mistle-skills/install.sh
-```
-
-The installer detects the single installed agent runtime and installs config-level skills to the matching directory:
-
-- Codex: `$CODEX_HOME/skills`, defaulting to `$HOME/.codex/skills`
-- OpenCode: `$XDG_CONFIG_HOME/opencode/skills`, defaulting to `$HOME/.config/opencode/skills`
-
-If `HOME` is not exported by the calling runtime, the installer resolves a stable
-fallback before installing skills.
-
-If no skill names are provided, the installer installs every first-level skill under `skills/`.
+Mistle discovers skills by scanning the repository for `SKILL.md` files. Each skill
+directory should include YAML frontmatter with a unique `name` and a
+`description`.
 
 ## Skills
 
@@ -55,7 +26,6 @@ If no skill names are provided, the installer installs every first-level skill u
 - `implement-with-alignment`: Normalize an implementation brief, get explicit alignment, then execute, verify, and prepare the completed change for publication.
 - `improve-harness-engineering`: Audit and prioritize codebase harness improvements for coding-agent workflows.
 - `improve-system-architecture`: Review codebase architecture from a system vantage point and recommend repo-local, cross-repo, or system-level improvements.
-- `install-playwright`: Reference pinned Playwright CLI installation and write repeatable setup scripts for sandbox or agent environments.
 - `review-pull-request`: Review live GitHub pull requests with focused subagent review and main-reviewer validation.
 - `write-a-skill`: Create or rewrite agent skills with clearer triggers, progressive disclosure, and compression.
 - `write-pull-request`: Write GitHub PR titles and descriptions using Mistle's PR body format.
